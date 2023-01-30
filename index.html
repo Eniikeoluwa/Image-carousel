@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Carousel</title>
+</head>
+<body onload="eniks()">
+    <img name="slide" width="600" height="600">
+    <button onclick="prev()"> PREVIOUS </button>
+    <button onclick="next()"> NEXT </button>
+ <script>
+        let i = 0;
+        let images = [];
+
+        // image list 
+        images[0] = "eni.png";
+        images[1] = "eniks.png";
+        images[2] = "hhh.png";
+        images[3] = "niks.png";
+        images[4] = "yoo.png";
+
+        //slide 
+        function next(){
+                document.slide.src = images[i];
+                if (i < images.length - 1) {
+                i++;
+            } else {
+                i = 0;
+            }
+            setTimeout("next()", time);
+        }
+        window.onload = next;
+
+        function prev() {
+                document.slide.src = images[i]
+                if (i < images.length) {
+                i--;
+            } else (
+                i = 0
+            )
+        }
+
+        function eniks() {
+            setInterval(() => {
+                document.slide.src = images[i];
+                if (i < images.length - 1) {
+                i++;
+            } else {
+                i = 0;
+            }
+            window.onload = next;
+            }, 3000);
+         }
+
+    </script>
+</body>
+</html>
